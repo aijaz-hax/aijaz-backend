@@ -1,0 +1,15 @@
+{
+  "name": "aijaxbackend",
+  "version": "1.0.0",
+  "description": "Aijax Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Javacript",
+    "Backend"
+  ],
+  "author": "Aijaz",
+  "license": "ISC"
+}
