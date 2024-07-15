@@ -24,13 +24,13 @@ const userSchema = new Schema({
     trim: true,
     index: true
    },
-   avatar:{
-    type: String, //Cloudinary URL
-    required: true
-   },
-   coverImage:{
-    type: String, //Cloudinary URL
-   },
+//    avatar:{
+//     type: String, //Cloudinary URL
+//     required: true
+//    },
+//    coverImage:{
+//     type: String, //Cloudinary URL
+//    },
    watchHistory: [
     {
         type: Schema.Types.ObjectId,
@@ -52,7 +52,9 @@ const userSchema = new Schema({
 
 userSchema.pre("save", async function(next){
     if(!this.isModified("password")) return next();
-    this.password = bcrypt.hash(this.password,10)
+    const salt = bcrypt.genSaltSync(10)
+
+    this.password = bcrypt.hashSync(this.password,salt)
     next()
 })
 
